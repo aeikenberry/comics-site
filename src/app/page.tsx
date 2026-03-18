@@ -4,7 +4,7 @@ import { desc, lte } from "drizzle-orm";
 import Link from "next/link";
 import Image from "next/image";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const latest = await db.select().from(comics).where(lte(comics.publishedAt, new Date())).orderBy(desc(comics.publishedAt)).limit(10);

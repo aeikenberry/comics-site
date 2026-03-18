@@ -4,6 +4,8 @@ import { eq } from "drizzle-orm";
 import Link from "next/link";
 import CommentActions from "./CommentActions";
 
+export const dynamic = "force-dynamic";
+
 export default async function CommentsPage() {
   const rows = await db
     .select({

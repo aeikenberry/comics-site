@@ -6,6 +6,8 @@ import Image from "next/image";
 import DeleteComicButton from "./DeleteComicButton";
 import EditDateButton from "./EditDateButton";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminDashboard() {
   const allComics = await db.select().from(comics).orderBy(desc(comics.publishedAt));
   const [{ value: pendingCount }] = await db

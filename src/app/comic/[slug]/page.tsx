@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CommentSection from "./CommentSection";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export default async function ComicPage({
   params,
