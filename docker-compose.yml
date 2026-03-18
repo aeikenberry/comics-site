@@ -2,12 +2,16 @@ services:
   db:
     image: postgres:16-alpine
     restart: unless-stopped
+    env_file:
+      - .env
     environment:
       POSTGRES_USER: comics
       POSTGRES_PASSWORD: ${DB_PASSWORD:-password}
       POSTGRES_DB: comics
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "${DB_PORT:-5432}:5432"
 
   app:
     build: .
